@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>生日贺卡</title>
+    <style>
+        body {
+            background: #ffe6f2;
+            text-align: center;
+            font-family: "微软雅黑";
+        }
+        .cake {
+            font-size: 40px;
+            animation: jump 1s infinite;
+        }
+        @keyframes jump {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <div style="padding: 20px;">
+        <h1 style="color: #ff3366;">🎉 生日快乐！ 🎂</h1>
+        
+        <!-- 跳动蛋糕 -->
+        <div class="cake">🎂</div>
+        
+        <!-- 祝福语 -->
+        <div style="font-size: 18px; margin: 20px;">
+            <p>✨ 愿你的每一天都充满阳光</p >
+            <p>🎁 所有愿望都能实现</p >
+            <p>❤️ 永远幸福快乐！</p >
+        </div>
+        
+        <!-- 点击特效 -->
+        <button onclick="confetti()" 
+                style="background: #ff6699; border: none; padding: 10px 20px; color: white;">
+            点击撒花 🌸
+        </button>
+    </div>
+
+    <script>
+        // 撒花特效
+        function confetti() {
+            for(let i = 0; i < 50; i++) {
+                let e = document.createElement("div");
+                e.style = `position: fixed;
+                            left: ${Math.random()*100}%;
+                            top: -10px;
+                            font-size: 24px;
+                            animation: fall ${Math.random()*3+2}s linear;`;
+                e.innerHTML = "🌸";
+                document.body.appendChild(e);
+                setTimeout(() => e.remove(), 3000);
+            }
+        }
+    </script>
+</body>
+</html>
